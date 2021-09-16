@@ -13,21 +13,16 @@ Game::~Game()
 }
 void Game::enterGameLoop()
 {
-    bool gameRunning = true;
     Timer timer;
     SDL_Texture* texture = IMG_LoadTexture(renderCtx->getRenderer(), "res/images/testsheet.png");
 
-    while (gameRunning)
+    while (env->getGameRunning())
     {
         timer.startTimer();
-        SDL_Event e;
-        while (SDL_PollEvent(&e))
-        {
-            if (e.type == SDL_QUIT)
-            {
-                gameRunning = false;
-            }
-        }
+
+        EventHandler eventHandler(env);
+
+        eventHandler.pollEvent();
 
         SDL_RenderClear(renderCtx->getRenderer());
         SDL_RenderCopy(renderCtx->getRenderer(), texture, NULL, NULL);

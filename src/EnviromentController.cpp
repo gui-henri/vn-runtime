@@ -1,6 +1,16 @@
 #include "EnviromentController.hpp"
 
-EnviromentController::EnviromentController() 
+EnviromentController::EnviromentController():gameRunning(true)
 {
-    std::cout << "MOCK";
+    
+}
+
+bool EnviromentController::getGameRunning()
+{
+    return gameRunning;
+}
+
+void EnviromentController::handleQuitEvent()
+{
+    gameRunning = false;
 }

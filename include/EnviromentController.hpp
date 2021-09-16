@@ -1,9 +1,13 @@
+#pragma once
 #include <iostream>
+#include <SDL2/SDL.h>
 class EnviromentController
 {
 private:
-    /* data */
+    bool gameRunning;
 public:
-    EnviromentController(/* args */);
-    ~EnviromentController();
+    EnviromentController();
+
+    bool getGameRunning();
+    void handleQuitEvent();
 };

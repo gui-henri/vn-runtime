@@ -13,7 +13,7 @@ RenderContext::RenderContext(const char* w_title, const int w_width, const int w
     }
 
 
-    window = SDL_CreateWindow(w_title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w_width, w_heigh, SDL_WINDOW_FULLSCREEN);
+    window = SDL_CreateWindow(w_title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w_width, w_heigh, SDL_WINDOW_SHOWN);
 
     if (window == NULL)
     {

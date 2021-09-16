@@ -4,6 +4,7 @@
 #include "RenderContext.hpp"
 #include "EnviromentController.hpp"
 #include "Timer.hpp"
+#include "EventHandler.hpp"
 
 
 class Game
