@@ -15,14 +15,22 @@ void Game::enterGameLoop()
 {
     Timer timer;
 
-    Entity placeHolder;
+    Entity placeHolder(0, 0, 50, 50);
     placeHolder.setTexture(renderCtx->getRenderer(), "res/images/testsheet.png");
+
+    Entity placeHolder2(0, 50, 50, 50);
+    placeHolder2.setTexture(renderCtx->getRenderer(), "res/images/testsheet.png");
     
+    SDL_Delay(200);
+
     std::vector<Entity> entities;
+    
     entities.push_back(placeHolder);
+    entities.push_back(placeHolder2);
 
     while (env->getGameRunning())
     {
+        std::cout << "frame start" << std::endl;
         timer.startTimer();
 
         EventHandler eventHandler(env);
@@ -37,5 +45,6 @@ void Game::enterGameLoop()
         {
             SDL_Delay(fpsCap - timer.getLastTimeInterval(MILISECONDS));
         }
+        std::cout << "frame end" << std::endl;
     }
 }

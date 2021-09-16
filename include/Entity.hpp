@@ -11,7 +11,17 @@ private:
     int h;
     SDL_Texture* texture;
 public:
-    Entity();
+    Entity(int x, int y, int w, int h);
     SDL_Texture* getTexture();
     void setTexture(SDL_Renderer* render, const char* tex_path);
+
+    int getX();
+    void setX(int x);
+    int getY();
+    void setY(int y);
+    int getW();
+    void setW(int w);
+    int getH();
+    void setH(int h);
+
 };

@@ -38,7 +38,15 @@ void RenderContext::renderEntities(std::vector<Entity> entities)
     SDL_RenderClear(render);
     for(Entity& p : entities)
     {
-        SDL_RenderCopy(render, p.getTexture(), NULL, NULL);
+        SDL_Rect dest;
+        dest.x = p.getX();
+        dest.y = p.getY();
+        dest.w = p.getW();
+        dest.h = p.getH();
+        SDL_Texture* tex = p.getTexture();
+        SDL_RenderCopy(render, tex, NULL, &dest);
+        std::cout << p.getX() << std::endl;
+        std::cout << "rendered" << std::endl;
     }
     SDL_RenderPresent(render);
 }
