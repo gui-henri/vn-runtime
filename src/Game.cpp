@@ -14,7 +14,12 @@ Game::~Game()
 void Game::enterGameLoop()
 {
     Timer timer;
-    SDL_Texture* texture = IMG_LoadTexture(renderCtx->getRenderer(), "res/images/testsheet.png");
+
+    Entity placeHolder;
+    placeHolder.setTexture(renderCtx->getRenderer(), "res/images/testsheet.png");
+    
+    std::vector<Entity> entities;
+    entities.push_back(placeHolder);
 
     while (env->getGameRunning())
     {
@@ -24,9 +29,7 @@ void Game::enterGameLoop()
 
         eventHandler.pollEvent();
 
-        SDL_RenderClear(renderCtx->getRenderer());
-        SDL_RenderCopy(renderCtx->getRenderer(), texture, NULL, NULL);
-        SDL_RenderPresent(renderCtx->getRenderer());
+        renderCtx->renderEntities(entities);
 
         timer.endTimer();
 

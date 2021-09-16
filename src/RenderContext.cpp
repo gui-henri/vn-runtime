@@ -33,6 +33,16 @@ SDL_Renderer* RenderContext::getRenderer()
     return render;
 }
 
+void RenderContext::renderEntities(std::vector<Entity> entities)
+{
+    SDL_RenderClear(render);
+    for(Entity& p : entities)
+    {
+        SDL_RenderCopy(render, p.getTexture(), NULL, NULL);
+    }
+    SDL_RenderPresent(render);
+}
+
 RenderContext::~RenderContext()
 {
     IMG_Quit();
